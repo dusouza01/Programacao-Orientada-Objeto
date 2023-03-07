@@ -18,9 +18,12 @@ public class Main {
 			} else {
 				if (opcao == 1) {
 					cadastrar();
-				}
-				else if(opcao==2) {
+				} else if (opcao == 2) {
 					pesquisar();
+				} else if (opcao == 3) {
+					emprestar();
+				} else if (opcao == 4) {
+					devolver();
 				}
 			}
 			System.out.println("--------------");
@@ -29,22 +32,32 @@ public class Main {
 		teclado.close();
 	}
 
+	public static void devolver() {
+		livro.devolver();
+
+	}
+
+	public static void emprestar() {
+		livro.emprestar();
+
+	}
+
 	public static void pesquisar() {
 		System.out.println(livro.getDados());
-		
+
 	}
 
 	public static void cadastrar() {
 		System.out.print("ID -->");
-		livro.id=teclado.nextInt();
+		livro.id = teclado.nextInt();
 		teclado.nextLine();
 		System.out.print("Título -->");
-		livro.titulo=teclado.nextLine();
+		livro.titulo = teclado.nextLine();
 		System.out.print("Autor -->");
-		livro.autor=teclado.nextLine();
+		livro.autor = teclado.nextLine();
 		System.out.println("-------------");
-		//para o livro comecar disponivel, a variável boolean é inicializada em false
-		livro.disponivel=true;
+		// para o livro comecar disponivel, a variável boolean é inicializada em false
+		livro.disponivel = true;
 	}
 
 	public static String gerarMenu() {
