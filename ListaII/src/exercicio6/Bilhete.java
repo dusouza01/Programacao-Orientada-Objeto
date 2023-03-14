@@ -26,7 +26,7 @@ public class Bilhete {
 		
 	}
 	//método para atualizar a tarifa base do metro
-	//static casa com static, como eu celarei a tarifa static, o metodo tem que ser static
+	//static casa com static, como eu coloquei a tarifa static, o metodo tem que ser static
 	public static void attTarifa(double porcentagem) {
 		tarifa = tarifa + tarifa * porcentagem /100;
 	}

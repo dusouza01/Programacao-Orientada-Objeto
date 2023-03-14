@@ -5,6 +5,17 @@ public class Funcionario {
 	String nome;
 	double salario;
 
+	// implementar o construtor
+	// metodo construtor nao tem tipo,nem ruturn nem void e o nome tem que ser da
+	// classe
+
+	// this. -> serve para referir que pertence a variavel global(deste objeto) e
+	// nao a local
+	public Funcionario(int id, String nome, double salario) {
+		this.id = id;
+		this.nome = nome;
+		this.salario = salario;
+	}
 	// metodo para retornar o salario líquido
 
 	public double salarioLiquido(double desconto) {
