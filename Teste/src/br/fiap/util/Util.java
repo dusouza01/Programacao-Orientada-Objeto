@@ -27,15 +27,60 @@ public class Util {
 				case 1:
 					reservar();
 					break;
+				case 2:
+					pesquisar();
+					break;
 
 				case 3:
 					visualizar();
+					break;
+					
+				case 4:
+					capacidade();
+					break;
+				case 5:
+					cancelar();
+					// como é o ultimo case, nao precisa usar o break
 					break;
 
 				}
 			}
 
 		} while (opcao != 6);
+
+	}
+
+	private void capacidade() {
+		showMessageDialog(null, viagem.capacidadeReservada());
+	}
+
+	private void cancelar() {
+		int cnpj, indice;
+
+		cnpj = parseInt(showInputDialog("CNPJ"));
+		indice = viagem.pesquisar(cnpj);
+		if (indice == -1) {
+			showMessageDialog(null, "Cliente nao encontrado");
+
+		} else {
+			viagem.cancelar(indice);
+
+		}
+
+	}
+
+	private void pesquisar() {
+		int cnpj, indice;
+
+		cnpj = parseInt(showInputDialog("CNPJ"));
+		indice = viagem.pesquisar(cnpj);
+		if (indice == -1) {
+			showMessageDialog(null, "Cliente nao encontrado");
+
+		} else {
+			showMessageDialog(null, viagem.getDados(indice));
+
+		}
 
 	}
 

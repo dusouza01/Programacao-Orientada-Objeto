@@ -4,18 +4,17 @@ public class Cliente {
 	private int cnpj;
 	private String cliente;
 
-	public Cliente(int cnpj, String nome_cliente) {
-		super();
+	public Cliente(int cnpj, String cliente) {
 		this.cnpj = cnpj;
 		this.cliente = cliente;
 	}
-	
+
 	public String getDados() {
-		String aux="";
-		aux+="CNPJ: "+ cnpj+"\n";
-		aux+="Nome da Empresa do Cliente: " + cliente;
+		String aux = "";
+		aux += "CNPJ: " + cnpj + "\n";
+		aux += "Cliente: " + cliente + "\n";
 		return aux;
-		
+
 	}
 
 	public int getCnpj() {
@@ -26,12 +25,12 @@ public class Cliente {
 		this.cnpj = cnpj;
 	}
 
-	public String getNome_cliente() {
+	public String getCliente() {
 		return cliente;
 	}
 
-	public void setNome_cliente(String nome_cliente) {
-		this.cliente = nome_cliente;
+	public void setCliente(String cliente) {
+		this.cliente = cliente;
 	}
 
 }

@@ -67,7 +67,5 @@ public class Carga {
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
-	
-	
 
 }

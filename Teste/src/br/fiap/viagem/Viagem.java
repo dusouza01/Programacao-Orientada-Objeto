@@ -1,5 +1,7 @@
 package br.fiap.viagem;
 
+import java.util.Iterator;
+
 import br.fiap.carga.Carga;
 
 public class Viagem {
@@ -29,7 +31,7 @@ public class Viagem {
 
 	public double capacidadeReservada() {
 		double total = 0;
-		for (int i = 0; i < index; index++) {
+		for (int i = 0; i < index; i++) {
 			total += carga[i].getPeso();
 
 		}
@@ -55,18 +57,33 @@ public class Viagem {
 		}
 		return aux;
 	}
-	//método para pesquisar uma carga pelo CNPJ
-	//tem relacao com o método cancelar
-	//vai retornar o índice do vetor
+
+	// método para pesquisar uma carga pelo CNPJ
+	// tem relacao com o método cancelar
+	// vai retornar o índice do vetor
 	public int pesquisar(int cnpj) {
 		int aux = -1;
-		for(int i =0; i< index;i++) {
-			if(carga[i].getCliente().getCnpj() == cnpj) {
+		for (int i = 0; i < index; i++) {
+			if (carga[i].getCliente().getCnpj() == cnpj) {
 				aux = i;
+				break;
 			}
 		}
 		return aux;
-		
+
+	}
+
+	// método para cancelar(remover) uma carga reservada
+
+	public void cancelar(int indice) {
+		carga[indice] = carga[index - 1];
+		index--;
+
+	}
+
+	// método para retornar os dados de uma carga específica
+	public String getDados(int indice) {
+		return carga[indice].getDados();
 	}
 
 }
