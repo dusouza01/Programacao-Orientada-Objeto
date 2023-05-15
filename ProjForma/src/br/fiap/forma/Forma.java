@@ -5,8 +5,9 @@ public abstract class Forma {
 	protected int cx;
 	protected int cy;
 	protected double raio;
+	
 	public Forma(int cx, int cy, double raio) {
-		//super()  chamada para o coonstrutor da Forma
+		//super()  chamada para o construtor da Forma
 		super();
 		this.cx = cx;
 		this.cy = cy;

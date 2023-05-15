@@ -55,7 +55,7 @@ public class Main {
 		for(Forma f : forma) {
 			if(f instanceof Volume) {
 				aux = (Volume)f;
-				System.out.println("volume --> "+ aux.calcularVolume());
+				System.out.println("volume --> " + aux.calcularVolume());
 			}
 		}
 		
