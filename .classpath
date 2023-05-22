@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="aula0602/src"/>
+	<classpathentry kind="src" path="CheckPoint2/src"/>
+	<classpathentry kind="src" path="ListaII/src"/>
+	<classpathentry kind="src" path="Produto/src"/>
+	<classpathentry kind="src" path="ProjetoDescobrir/src"/>
+	<classpathentry kind="src" path="ProjetoEmpregado/src"/>
+	<classpathentry kind="src" path="ProjForma/src"/>
+	<classpathentry kind="src" path="RevisaoVetor/src"/>
+	<classpathentry kind="src" path="Teste/src"/>
+	<classpathentry kind="output" path="CheckPoint2/bin"/>
+</classpath>
