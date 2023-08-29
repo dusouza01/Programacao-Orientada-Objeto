@@ -54,22 +54,58 @@ public class Menu {
 	}
 
 	private void excluirEmpregado() {
-		// TODO Auto-generated method stub
+		
+		EmpregadoDAO dao = new EmpregadoDAO();
+		int id = parseInt(showInputDialog("ID"));
+		Empregado empregado = dao.pesquisar(id);
+		if(empregado == null) {
+			showMessageDialog(null, "Empregado não está cadastrado na base de dados");
+		}else {
+			dao.remover(id);
+			
+		}
 
 	}
 
 	private void atualizarEmpregado() {
-		// TODO Auto-generated method stub
-
+		EmpregadoDAO dao = new EmpregadoDAO();
+		int id = parseInt(showInputDialog("ID"));
+		Empregado empregado = dao.pesquisar(id);
+		if(empregado == null) {
+			showMessageDialog(null, "Empregado não está cadastrado na base de dados");
+		}else {
+			String nome = showInputDialog("Novo nome");
+			double salarioNovo = parseDouble(showInputDialog("Novo salário"));
+			empregado.setNome(nome);
+			empregado.setSalario(salarioNovo);
+			dao.atualizar(empregado);
+			
+			
+			
+		}
 	}
 
 	private void listarEmpregado() {
-		// TODO Auto-generated method stub
-
+		EmpregadoDAO dao = new EmpregadoDAO();
+		List<Empregado> lista = dao.listar();
+		String aux = " ";
+		for(Empregado e: lista) {
+			aux += e + "\n";
+		}
+		showMessageDialog(null, aux);
+		
 	}
-
+	//CHECKPOINT
 	private void pesquisarEmpregado() {
-		// TODO Auto-generated method stub
+		EmpregadoDAO dao = new EmpregadoDAO();
+		int id = parseInt(showInputDialog("ID"));
+		Empregado empregado = dao.pesquisar(id);
+		if(empregado == null) {
+			showMessageDialog(null, "Empregado não está cadastrado na base de dados");
+		}else {
+			showMessageDialog(null, empregado.toString());
+			
+		}
 
 	}
 

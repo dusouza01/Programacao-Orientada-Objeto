@@ -14,6 +14,14 @@ public class Empregado {
 		this.departamento = departamento;
 	}
 
+	@Override
+	public String toString() {
+		String aux = " ";
+		aux += "Nome: " + nome + "\n";
+		aux += "Salário R$ " + salario + "\n";
+		aux += "Departamento " + departamento.getNome() +  "\n";
+		return aux;
+	}
 	public int getId() {
 		return id;
 	}

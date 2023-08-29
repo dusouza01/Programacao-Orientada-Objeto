@@ -22,6 +22,8 @@ public class EmpregadoDAO {
 	}
 
 	// método para pesquisar um empregado pelo seu ID (matrícula)
+
+	// checkpoint
 	public Empregado pesquisar(int id) {
 		Empregado empregado = null;
 		sql = "select * from java_empregado where id = ?";
@@ -33,7 +35,7 @@ public class EmpregadoDAO {
 			if (rs.next()) {
 				Departamento departamento = new Departamento(rs.getInt("id_departamento"), null);
 				empregado = new Empregado(rs.getInt("id"), rs.getString("nome"), rs.getDouble("salario"), departamento);
-				
+
 			}
 			rs.close();
 			ps.close();
@@ -44,11 +46,12 @@ public class EmpregadoDAO {
 
 		return empregado;
 	}
-	
-	//método para inserir os dados de um empregado no banco de dados
+
+	// método para inserir os dados de um empregado no banco de dados
+
+	// checkpoint
 	public void inserir(Empregado empregado) {
 		sql = "insert into java_empregado(id, nome, salario, id_departamento) values(?, ?, ?, ?)";
-		
 
 		try (Connection connection = conexao.conectar()) {
 			ps = connection.prepareStatement(sql);
@@ -59,23 +62,68 @@ public class EmpregadoDAO {
 			ps.execute();
 			ps.close();
 			connection.close();
-			
+
 		} catch (SQLException e) {
 			System.out.println(e);
 		}
 	}
-	//método para listar todos os empreados 
-	public List<Empregado> listar(){
+
+	// método para listar todos os empreados
+	public List<Empregado> listar() {
+
 		List<Empregado> lista = new ArrayList<>();
 		sql = "select e.id as id,e.nome as nome, e.salario as salario, \r\n"
-				+ "d.nome as nomeDep from java_empregado e\r\n"
-				+ "join java_departamento d\r\n"
+				+ "d.nome as nomeDep from java_empregado e\r\n" + "join java_departamento d\r\n"
 				+ "on e.id_departamento = d.id";
-		
-		try
-		
-		
+		try (Connection connection = conexao.conectar()) {
+			ps = connection.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				int id = rs.getInt("id");
+				String nome = rs.getString("nome");
+				double salario = rs.getDouble("salario");
+				String nomeDep = rs.getString("nomeDep");
+				Departamento departamento = new Departamento(0, nomeDep);
+				Empregado empregado = new Empregado(id, nome, salario, departamento);
+				lista.add(empregado);
+			}
+		} catch (SQLException e) {
+			System.out.println("erro ao listar empregado\n" + e);
+		}
 		return lista;
 	}
-}
 
+	// método para remover im empregado pelo ID
+
+	public void remover(int id) {
+		sql = "delete from java_empregado where id = ?";
+
+		try (Connection connection = conexao.conectar()) {
+			ps = connection.prepareStatement(sql);
+			ps.setInt(1, id);
+			ps.execute();
+			ps.close();
+			connection.close();
+		} catch (SQLException e) {
+			System.out.println(e);
+		}
+
+	}
+		//método para atualizar o nome e salário do empregado
+	public void atualizar(Empregado empregado) {
+		sql = "update java_empregado set nome = ?, salario = ? where id = ?";
+		try (Connection connection = conexao.conectar()) {
+			ps = connection.prepareStatement(sql);
+			ps.setString(1, empregado.getNome());
+			ps.setDouble(2, empregado.getSalario());
+			ps.setInt(3, empregado.getId());
+			ps.execute();
+			ps.close();
+			connection.close();
+
+		} catch (SQLException e) {
+			System.out.println(e);
+		}
+
+	}
+}
