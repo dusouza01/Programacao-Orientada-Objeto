@@ -13,7 +13,7 @@
 		<div class="content">		
 			<!--FORMULÁRIO DE CADASTRO-->
 			<div id="cadastro">
-				<form action="">
+				<form method ="post" action="../inserir">
 					<h1>Cadastro</h1>
 
 					<p>
