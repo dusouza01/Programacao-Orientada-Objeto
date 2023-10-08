@@ -19,7 +19,7 @@ public class Conexao {
 				
 		// a abertura do arquivo é feita usando o recurso try-with-resource
 		// esse bloco substitui o bloco finaly
-		try(FileInputStream file = new FileInputStream("C:\\Users\\logonrmlocal\\Documents\\GitHub\\Programacao-Orientada-Objeto\\ProjetoContato_vf\\resources\\config.properties")){
+		try(FileInputStream file = new FileInputStream("C:\\Users\\dudux\\OneDrive\\Documentos\\GitHub\\Programacao-Orientada-Objeto\\ProjetoContato_vf\\resources\\config.properties")){
 			// carrega o arquivo aberto para a memória para ser processado
 			properties.load(file);
 			// faz a leitura dos valores usando o método getProperty()
